@@ -59,5 +59,81 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Iniciar el carrusel automático
         setInterval(nextSlide, 3000); // Cambiar cada 3 segundos
+
+        // Añade este código dentro de la función existente document.addEventListener('DOMContentLoaded', function() { ... })
+// justo después de la inicialización del carrusel de proyectos
+
+// ---- HERO CAROUSEL ----
+const heroSlides = document.querySelectorAll('.hero-slide');
+const indicators = document.querySelectorAll('.indicator');
+const prevButton = document.querySelector('.arrow.prev');
+const nextButton = document.querySelector('.arrow.next');
+let heroCurrentSlide = 0;
+let heroInterval;
+
+// Función para cambiar a una diapositiva específica
+function goToSlide(index) {
+    // Remover la clase active de todas las diapositivas e indicadores
+    heroSlides.forEach(slide => slide.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    // Añadir la clase active a la diapositiva e indicador actual
+    heroSlides[index].classList.add('active');
+    indicators[index].classList.add('active');
+    
+    // Actualizar el índice actual
+    heroCurrentSlide = index;
+}
+
+// Función para ir a la siguiente diapositiva
+function nextSlide() {
+    const newIndex = (heroCurrentSlide + 1) % heroSlides.length;
+    goToSlide(newIndex);
+}
+
+// Función para ir a la diapositiva anterior
+function prevSlide() {
+    const newIndex = (heroCurrentSlide - 1 + heroSlides.length) % heroSlides.length;
+    goToSlide(newIndex);
+}
+
+// Iniciar la rotación automática
+function startAutoRotation() {
+    heroInterval = setInterval(nextSlide, 5000); // Cambiar cada 5 segundos
+}
+
+// Detener la rotación automática
+function stopAutoRotation() {
+    clearInterval(heroInterval);
+}
+
+// Event listeners para los botones
+nextButton.addEventListener('click', () => {
+    nextSlide();
+    stopAutoRotation();
+    startAutoRotation(); // Reiniciar la rotación
+});
+
+prevButton.addEventListener('click', () => {
+    prevSlide();
+    stopAutoRotation();
+    startAutoRotation(); // Reiniciar la rotación
+});
+
+// Event listeners para los indicadores
+indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+        goToSlide(index);
+        stopAutoRotation();
+        startAutoRotation(); // Reiniciar la rotación
+    });
+});
+
+// Iniciar la rotación automática al cargar la página
+startAutoRotation();
+
+// Pausar la rotación automática cuando el usuario pase el mouse por encima
+document.querySelector('.hero').addEventListener('mouseenter', stopAutoRotation);
+document.querySelector('.hero').addEventListener('mouseleave', startAutoRotation);
     });
 });
