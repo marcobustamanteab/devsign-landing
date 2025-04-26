@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devsign - Diseño y Desarrollo Web</title>
-</head>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Carousel Styles - Agregados directamente aquí para asegurar que se aplican */
+        .carousel-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            background-color: #e5e7eb;
+        }
 
+        .carousel-slides {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
 <body>
     <header>
         <div class="container">
@@ -19,7 +57,7 @@
                     <a href="contact.html">Contacto</a>
                 </div>
                 <div class="nav-buttons">
-                    <a href="https://beautycare.devsign.cl" class="cta-button">Iniciar Sesión</a>
+                    <a href="https://beautycare.devsign.cl" class="cta-button">Iniciar Demo</a>
                 </div>
             </nav>
         </div>
@@ -29,8 +67,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Diseño y desarrollo <span class="accent">que impulsa tu negocio</span></h1>
-                <p>Somos expertos en crear soluciones digitales innovadoras que transforman ideas en experiencias
-                    excepcionales.</p>
+                <p>Somos expertos en crear soluciones digitales innovadoras que transforman ideas en experiencias excepcionales.</p>
                 <div>
                     <a href="contact.html" class="cta-button">Hablemos de tu proyecto</a>
                 </div>
@@ -42,15 +79,13 @@
         <div class="container">
             <div class="section-title">
                 <h2>Nuestros Servicios</h2>
-                <p class="subtitle">Ofrecemos soluciones digitales completas para ayudarte a alcanzar tus objetivos de
-                    negocio.</p>
+                <p class="subtitle">Ofrecemos soluciones digitales completas para ayudarte a alcanzar tus objetivos de negocio.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">📱</div>
                     <h3>Diseño UI/UX</h3>
-                    <p>Creamos interfaces intuitivas y atractivas que mejoran la experiencia del usuario y aumentan la
-                        conversión.</p>
+                    <p>Creamos interfaces intuitivas y atractivas que mejoran la experiencia del usuario y aumentan la conversión.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">💻</div>
@@ -60,8 +95,7 @@
                 <div class="service-card">
                     <div class="service-icon">🚀</div>
                     <h3>Aplicaciones a Medida</h3>
-                    <p>Creamos aplicaciones adaptadas a las necesidades específicas de tu negocio, como sistemas de
-                        gestión y más.</p>
+                    <p>Creamos aplicaciones adaptadas a las necesidades específicas de tu negocio, como sistemas de gestión y más.</p>
                 </div>
             </div>
         </div>
@@ -71,8 +105,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Proyectos Destacados</h2>
-                <p class="subtitle">Conoce algunos de nuestros trabajos más recientes y las soluciones que hemos
-                    implementado.</p>
+                <p class="subtitle">Conoce algunos de nuestros trabajos más recientes y las soluciones que hemos implementado.</p>
             </div>
             <div class="projects-grid">
                 <!-- Proyecto BeautyCare con carrusel -->
@@ -96,8 +129,7 @@
                             <span class="tag">Desarrollo Full Stack</span>
                         </div>
                         <h3>Beauty Care</h3>
-                        <p>Sistema de gestión para salones de belleza y estética con funcionalidades de agenda, clientes
-                            y ventas.</p>
+                        <p>Sistema de gestión para salones de belleza y estética con funcionalidades de agenda, clientes y ventas.</p>
                     </div>
                 </div>
 
@@ -109,8 +141,7 @@
                             <span class="tag">Desarrollo Web</span>
                         </div>
                         <h3>Tienda Online</h3>
-                        <p>Plataforma de comercio electrónico personalizada con integración de pasarelas de pago y
-                            gestión de inventario.</p>
+                        <p>Plataforma de comercio electrónico personalizada con integración de pasarelas de pago y gestión de inventario.</p>
                     </div>
                 </div>
                 <div class="project-card">
@@ -121,8 +152,7 @@
                             <span class="tag">Dashboard</span>
                         </div>
                         <h3>Dashboard Corporativo</h3>
-                        <p>Panel de control para visualización de datos empresariales y toma de decisiones estratégicas.
-                        </p>
+                        <p>Panel de control para visualización de datos empresariales y toma de decisiones estratégicas.</p>
                     </div>
                 </div>
             </div>
@@ -132,8 +162,7 @@
     <section class="cta">
         <div class="container">
             <h2>¿Listo para dar el siguiente paso?</h2>
-            <p class="subtitle">Contacta con nosotros hoy mismo y hablemos sobre cómo podemos ayudarte a transformar tu
-                idea en realidad.</p>
+            <p class="subtitle">Contacta con nosotros hoy mismo y hablemos sobre cómo podemos ayudarte a transformar tu idea en realidad.</p>
             <a href="contact.html" class="cta-button-white">Solicitar Presupuesto</a>
         </div>
     </section>
@@ -143,8 +172,7 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>Devsign</h4>
-                    <p>Creamos soluciones digitales que marcan la diferencia. Expertos en diseño y desarrollo para
-                        negocios y startups.</p>
+                    <p>Creamos soluciones digitales que marcan la diferencia. Expertos en diseño y desarrollo para negocios y startups.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Enlaces Rápidos</h4>
@@ -173,36 +201,36 @@
     <!-- Script del carrusel embebido para garantizar su funcionamiento -->
     <script>
         // Esta función se ejecutará cuando la página haya cargado completamente
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             console.log('DOM fully loaded, initializing carousel');
-
+            
             // Seleccionamos todos los contenedores de carrusel
             const carousels = document.querySelectorAll('.carousel-container');
             console.log('Found carousel containers:', carousels.length);
-
+            
             // Para cada carrusel encontrado
-            carousels.forEach(function (carousel) {
+            carousels.forEach(function(carousel) {
                 const slides = carousel.querySelectorAll('.carousel-slide');
                 console.log('Found slides in this carousel:', slides.length);
-
+                
                 let currentSlide = 0;
-
+                
                 // Asegurarnos de que la primera diapositiva sea visible inicialmente
                 slides[0].classList.add('active');
-
+                
                 // Función para cambiar a la siguiente diapositiva
                 function nextSlide() {
                     console.log('Changing to next slide');
                     // Quitar la clase active de la diapositiva actual
                     slides[currentSlide].classList.remove('active');
-
+                    
                     // Pasar a la siguiente diapositiva (volver al principio si es la última)
                     currentSlide = (currentSlide + 1) % slides.length;
-
+                    
                     // Agregar la clase active a la nueva diapositiva
                     slides[currentSlide].classList.add('active');
                 }
-
+                
                 // Iniciar el carrusel automático
                 console.log('Setting up interval for slides');
                 setInterval(nextSlide, 3000); // Cambiar cada 3 segundos
@@ -210,5 +238,4 @@
         });
     </script>
 </body>
-
 </html>
