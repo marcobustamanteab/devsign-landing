@@ -53,6 +53,130 @@
         html {
             scroll-behavior: smooth;
         }
+
+        .hero {
+            position: relative;
+            padding: 0;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+        }
+
+        .hero-carousel {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 1.5s ease;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+        }
+
+        .hero-content-wrapper {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: left;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .hero .hero-content h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero .hero-content .accent {
+            color: var(--secondary);
+        }
+
+        .hero .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .hero-carousel-controls {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .hero-carousel-indicators {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .indicator.active {
+            background-color: var(--secondary);
+            transform: scale(1.2);
+        }
+
+        .indicator:hover {
+            background-color: white;
+        }
+
+        .hero-carousel-arrows {
+            display: flex;
+            gap: 20px;
+        }
+
+        .arrow {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .arrow:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
     </style>
 </head>
 
@@ -728,33 +852,25 @@
     <!-- Script para carrousel y scroll suave -->
     <script>
         // Esta función se ejecutará cuando la página haya cargado completamente
+        // Reemplaza todo el contenido del script existente con este código completo
         document.addEventListener('DOMContentLoaded', function () {
             // ---- SCROLL SUAVE ----
-            // Seleccionar todos los enlaces que comienzan con #
             const links = document.querySelectorAll('a[href^="#"]');
 
-            // Agregar event listener a cada enlace
             links.forEach(link => {
                 link.addEventListener('click', function (e) {
-                    // Prevenir el comportamiento por defecto
                     e.preventDefault();
 
-                    // Obtener el valor del atributo href
                     const targetId = this.getAttribute('href');
 
-                    // Si es un ancla válida (no solo "#")
                     if (targetId !== '#') {
-                        // Obtener el elemento objetivo
                         const targetElement = document.querySelector(targetId);
 
-                        // Si el elemento existe, hacer scroll suave
                         if (targetElement) {
-                            // Calcular la posición ajustada (restar un poco por el header fijo)
-                            const headerOffset = 80; // Altura aproximada del header
+                            const headerOffset = 80;
                             const elementPosition = targetElement.getBoundingClientRect().top;
                             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-                            // Ejecutar el scroll suave
                             window.scrollTo({
                                 top: offsetPosition,
                                 behavior: 'smooth'
@@ -764,34 +880,104 @@
                 });
             });
 
-            // ---- CARRUSEL ----
-            // Seleccionamos todos los contenedores de carrusel
-            const carousels = document.querySelectorAll('.carousel-container');
+            // ---- CARRUSEL DE PROYECTOS ----
+            const projectCarousels = document.querySelectorAll('.carousel-container');
 
-            // Para cada carrusel encontrado
-            carousels.forEach(function (carousel) {
+            projectCarousels.forEach(function (carousel) {
                 const slides = carousel.querySelectorAll('.carousel-slide');
 
                 let currentSlide = 0;
 
-                // Asegurarnos de que la primera diapositiva sea visible inicialmente
                 slides[0].classList.add('active');
 
-                // Función para cambiar a la siguiente diapositiva
-                function nextSlide() {
-                    // Quitar la clase active de la diapositiva actual
+                function nextProjectSlide() {
                     slides[currentSlide].classList.remove('active');
-
-                    // Pasar a la siguiente diapositiva (volver al principio si es la última)
                     currentSlide = (currentSlide + 1) % slides.length;
-
-                    // Agregar la clase active a la nueva diapositiva
                     slides[currentSlide].classList.add('active');
                 }
 
-                // Iniciar el carrusel automático
-                setInterval(nextSlide, 3000); // Cambiar cada 3 segundos
+                setInterval(nextProjectSlide, 3000);
             });
+
+            // ---- HERO CAROUSEL ----
+            const heroSlides = document.querySelectorAll('.hero-slide');
+            if (heroSlides.length > 0) { // Verificar que existen las diapositivas
+                const indicators = document.querySelectorAll('.indicator');
+                const prevButton = document.querySelector('.arrow.prev');
+                const nextButton = document.querySelector('.arrow.next');
+                let heroCurrentSlide = 0;
+                let heroInterval;
+
+                // Función para cambiar a una diapositiva específica
+                function goToSlide(index) {
+                    // Remover la clase active de todas las diapositivas e indicadores
+                    heroSlides.forEach(slide => slide.classList.remove('active'));
+                    indicators.forEach(indicator => indicator.classList.remove('active'));
+
+                    // Añadir la clase active a la diapositiva e indicador actual
+                    heroSlides[index].classList.add('active');
+                    indicators[index].classList.add('active');
+
+                    // Actualizar el índice actual
+                    heroCurrentSlide = index;
+                }
+
+                // Función para ir a la siguiente diapositiva
+                function nextHeroSlide() {
+                    const newIndex = (heroCurrentSlide + 1) % heroSlides.length;
+                    goToSlide(newIndex);
+                }
+
+                // Función para ir a la diapositiva anterior
+                function prevHeroSlide() {
+                    const newIndex = (heroCurrentSlide - 1 + heroSlides.length) % heroSlides.length;
+                    goToSlide(newIndex);
+                }
+
+                // Iniciar la rotación automática
+                function startAutoRotation() {
+                    heroInterval = setInterval(nextHeroSlide, 5000); // Cambiar cada 5 segundos
+                }
+
+                // Detener la rotación automática
+                function stopAutoRotation() {
+                    clearInterval(heroInterval);
+                }
+
+                // Event listeners para los botones
+                if (nextButton && prevButton) {
+                    nextButton.addEventListener('click', () => {
+                        nextHeroSlide();
+                        stopAutoRotation();
+                        startAutoRotation(); // Reiniciar la rotación
+                    });
+
+                    prevButton.addEventListener('click', () => {
+                        prevHeroSlide();
+                        stopAutoRotation();
+                        startAutoRotation(); // Reiniciar la rotación
+                    });
+                }
+
+                // Event listeners para los indicadores
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        goToSlide(index);
+                        stopAutoRotation();
+                        startAutoRotation(); // Reiniciar la rotación
+                    });
+                });
+
+                // Iniciar la rotación automática al cargar la página
+                startAutoRotation();
+
+                // Pausar la rotación automática cuando el usuario pase el mouse por encima
+                const heroSection = document.querySelector('.hero');
+                if (heroSection) {
+                    heroSection.addEventListener('mouseenter', stopAutoRotation);
+                    heroSection.addEventListener('mouseleave', startAutoRotation);
+                }
+            }
 
             // Destacar enlace de navegación activo al hacer scroll
             window.addEventListener('scroll', function () {
@@ -807,7 +993,10 @@
                         document.querySelectorAll('.nav-links a').forEach(link => {
                             link.classList.remove('active');
                         });
-                        document.querySelector(`.nav-links a[href="#${sectionId}"]`)?.classList.add('active');
+                        const activeLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
                     }
                 });
             });
