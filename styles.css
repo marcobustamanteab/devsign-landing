@@ -68,7 +68,7 @@ nav {
 }
 
 .nav-links a:hover, .nav-links a.active {
-    color: var(--primary);
+    color: var(--secondary);
 }
 
 .nav-buttons {
@@ -985,13 +985,7 @@ html {
 }
 
 .hero-content-wrapper {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4));
-    display: flex;
-    align-items: center;
-    color: white;
-    text-align: left;
+    background: linear-gradient(rgba(0, 31, 61, 0.7), rgba(0, 31, 61, 0.5));
 }
 
 .hero-content {
@@ -1001,10 +995,7 @@ html {
 }
 
 .hero .hero-content h1 {
-    font-size: 48px;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .hero .hero-content .accent {
@@ -1012,10 +1003,9 @@ html {
 }
 
 .hero .hero-content p {
-    font-size: 20px;
-    margin-bottom: 30px;
-    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
+
 
 .hero-carousel-controls {
     position: absolute;
@@ -1091,4 +1081,14 @@ html {
     .hero-content {
         padding: 0 20px;
     }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 32px;
+    margin-right: 8px;
 }
