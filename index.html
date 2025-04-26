@@ -54,12 +54,12 @@
     <header>
         <div class="container">
             <nav>
-                <a href="index.html" class="logo">Dev<span>sign</span></a>
+                <a href="#home" class="logo">Dev<span>sign</span></a>
                 <div class="nav-links">
-                    <a href="services.html">Servicios</a>
+                    <a href="#services">Servicios</a>
                     <a href="#projects">Proyectos</a>
-                    <a href="about.html">Nosotros</a>
-                    <a href="contact.html">Contacto</a>
+                    <a href="#about">Nosotros</a>
+                    <a href="#contact">Contacto</a>
                 </div>
                 <div class="nav-buttons">
                     <a href="https://beautycare.devsign.cl" class="cta-button">Iniciar Demo</a>
@@ -68,18 +68,20 @@
         </div>
     </header>
 
-    <section class="hero">
+    <!-- SECCIÓN HOME -->
+    <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>Diseño y desarrollo <span class="accent">que impulsa tu negocio</span></h1>
                 <p>Somos expertos en crear soluciones digitales innovadoras que transforman ideas en experiencias excepcionales.</p>
                 <div>
-                    <a href="contact.html" class="cta-button">Hablemos de tu proyecto</a>
+                    <a href="#contact" class="cta-button">Hablemos de tu proyecto</a>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- SECCIÓN SERVICIOS -->
     <section id="services" class="services">
         <div class="container">
             <div class="section-title">
@@ -103,9 +105,191 @@
                     <p>Creamos aplicaciones adaptadas a las necesidades específicas de tu negocio, como sistemas de gestión y más.</p>
                 </div>
             </div>
+            
+            <!-- Contenido detallado de servicios -->
+            <div class="services-detailed">
+                <div class="service-detailed-item">
+                    <div class="service-detailed-image">
+                        <span>Diseño UI/UX</span>
+                    </div>
+                    <div class="service-detailed-content">
+                        <h2>Diseño UI/UX</h2>
+                        <p>Creamos experiencias digitales atractivas y funcionales que cautivan a tus usuarios y mejoran la conversión.</p>
+                        
+                        <h3>¿Qué incluye?</h3>
+                        <ul class="service-features">
+                            <li>Investigación y análisis de usuarios</li>
+                            <li>Wireframes y prototipos interactivos</li>
+                            <li>Diseño visual y de interacción</li>
+                            <li>Pruebas de usabilidad</li>
+                            <li>Sistemas de diseño escalables</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-detailed-item reverse">
+                    <div class="service-detailed-image">
+                        <span>Desarrollo Web</span>
+                    </div>
+                    <div class="service-detailed-content">
+                        <h2>Desarrollo Web</h2>
+                        <p>Desarrollamos sitios web a medida, optimizados para rendimiento, SEO y conversión que representan efectivamente tu marca.</p>
+                        
+                        <h3>¿Qué incluye?</h3>
+                        <ul class="service-features">
+                            <li>Sitios web corporativos y landing pages</li>
+                            <li>Tiendas online y plataformas e-commerce</li>
+                            <li>Blogs y sitios de contenido</li>
+                            <li>Integraciones con API y servicios externos</li>
+                            <li>Optimización para dispositivos móviles</li>
+                            <li>Implementación de Google Analytics y SEO básico</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="service-detailed-item">
+                    <div class="service-detailed-image">
+                        <span>Aplicaciones a Medida</span>
+                    </div>
+                    <div class="service-detailed-content">
+                        <h2>Aplicaciones a Medida</h2>
+                        <p>Desarrollamos soluciones de software personalizadas que automatizan procesos y resuelven necesidades específicas de tu negocio.</p>
+                        
+                        <h3>¿Qué incluye?</h3>
+                        <ul class="service-features">
+                            <li>Sistemas de gestión empresarial (ERP, CRM)</li>
+                            <li>Aplicaciones web progresivas (PWA)</li>
+                            <li>Dashboards y paneles de administración</li>
+                            <li>Integración con APIs y servicios externos</li>
+                            <li>Migración y optimización de sistemas existentes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tecnologías -->
+            <div class="technologies-section">
+                <h2>Tecnologías con las que trabajamos</h2>
+                <p class="subtitle">Utilizamos las tecnologías más modernas y eficientes para desarrollar soluciones robustas y escalables.</p>
+                
+                <div class="technologies-grid">
+                    <div class="technology-category">
+                        <h3>Frontend</h3>
+                        <ul class="technology-list">
+                            <li>React.js</li>
+                            <li>Vue.js</li>
+                            <li>Next.js</li>
+                            <li>Angular</li>
+                            <li>HTML5/CSS3</li>
+                            <li>Tailwind CSS</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="technology-category">
+                        <h3>Backend</h3>
+                        <ul class="technology-list">
+                            <li>Node.js</li>
+                            <li>Python</li>
+                            <li>PHP/Laravel</li>
+                            <li>Java</li>
+                            <li>Ruby on Rails</li>
+                            <li>.NET</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="technology-category">
+                        <h3>Bases de Datos</h3>
+                        <ul class="technology-list">
+                            <li>PostgreSQL</li>
+                            <li>MySQL</li>
+                            <li>MongoDB</li>
+                            <li>Firebase</li>
+                            <li>Redis</li>
+                            <li>SQL Server</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="technology-category">
+                        <h3>Cloud & DevOps</h3>
+                        <ul class="technology-list">
+                            <li>AWS</li>
+                            <li>Google Cloud</li>
+                            <li>Azure</li>
+                            <li>Docker</li>
+                            <li>Kubernetes</li>
+                            <li>CI/CD</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proceso de trabajo -->
+            <div class="process-section">
+                <h2>Nuestro Proceso de Trabajo</h2>
+                <p class="subtitle">Seguimos una metodología probada para garantizar resultados excepcionales en cada proyecto.</p>
+                
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Descubrimiento</h3>
+                            <p>Analizamos tus necesidades, objetivos y público objetivo para entender completamente tu proyecto.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Planificación</h3>
+                            <p>Definimos la arquitectura, tecnologías y recursos necesarios para implementar la solución óptima.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Diseño</h3>
+                            <p>Creamos wireframes y diseños visuales que plasman la visión del proyecto de forma atractiva y funcional.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Desarrollo</h3>
+                            <p>Implementamos la solución utilizando las mejores prácticas de programación y metodologías ágiles.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Pruebas</h3>
+                            <p>Realizamos pruebas exhaustivas para garantizar la calidad, seguridad y rendimiento del producto.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h3>Lanzamiento</h3>
+                            <p>Implementamos la solución en producción y te acompañamos durante todo el proceso de lanzamiento.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">7</div>
+                        <div class="step-content">
+                            <h3>Soporte</h3>
+                            <p>Ofrecemos mantenimiento continuo y mejoras para asegurar el éxito a largo plazo de tu proyecto.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- SECCIÓN PROYECTOS -->
     <section id="projects" class="projects">
         <div class="container">
             <div class="section-title">
@@ -164,11 +348,239 @@
         </div>
     </section>
 
+    <!-- SECCIÓN NOSOTROS (ABOUT) -->
+    <section id="about" class="about-section">
+        <div class="page-header">
+            <div class="container">
+                <h1>Quiénes Somos</h1>
+                <p>Conoce más sobre Devsign y nuestra misión de transformar negocios a través de la tecnología</p>
+            </div>
+        </div>
+
+        <div class="about-content">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h2>Nuestra Historia</h2>
+                        <p>Devsign nació con una visión clara: hacer que la tecnología sea accesible y efectiva para todo
+                            tipo de negocios. Fundada en 2020, nuestra empresa ha crecido rápidamente, estableciéndose como
+                            un referente en el desarrollo de soluciones digitales a medida.</p>
+                        <p>Lo que comenzó como un pequeño equipo de desarrolladores apasionados, se ha convertido en una
+                            agencia completa que ofrece servicios integrales de diseño y desarrollo, siempre manteniendo
+                            nuestros valores centrales de innovación, calidad y servicio al cliente.</p>
+
+                        <h2>Nuestra Misión</h2>
+                        <p>Transformar ideas en soluciones digitales excepcionales que impulsen el crecimiento de nuestros
+                            clientes, combinando diseño intuitivo con tecnología de vanguardia.</p>
+
+                        <h2>Nuestra Visión</h2>
+                        <p>Ser reconocidos como líderes en la creación de experiencias digitales innovadoras que generen
+                            valor real y duradero para empresas de todos los tamaños.</p>
+                    </div>
+                    <div class="about-image">
+                        <div class="image-placeholder">
+                            <span>Imagen del equipo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="values-section">
+                    <h2>Nuestros Valores</h2>
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="value-icon">💡</div>
+                            <h3>Innovación</h3>
+                            <p>Constantemente exploramos nuevas tecnologías y enfoques para ofrecer las soluciones más
+                                avanzadas y efectivas.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">🤝</div>
+                            <h3>Colaboración</h3>
+                            <p>Trabajamos estrechamente con nuestros clientes, convirtiéndonos en socios estratégicos en su
+                                crecimiento digital.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">✨</div>
+                            <h3>Excelencia</h3>
+                            <p>Nos comprometemos con los más altos estándares de calidad en cada proyecto que emprendemos.
+                            </p>
+                        </div>
+                        <div class="value-card">
+                            <div class="value-icon">🔍</div>
+                            <h3>Transparencia</h3>
+                            <p>Mantenemos una comunicación clara y honesta en todo momento, desde la planificación hasta la
+                                entrega.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="team-section">
+                    <h2>Nuestro Equipo</h2>
+                    <p class="subtitle">Contamos con profesionales apasionados y altamente capacitados en diferentes áreas.
+                    </p>
+
+                    <div class="team-grid">
+                        <div class="team-card">
+                            <div class="member-image">
+                                <span>Foto</span>
+                            </div>
+                            <h3>Juan Pérez</h3>
+                            <p class="role">Director & Desarrollador Senior</p>
+                            <p>Especialista en arquitectura de sistemas y desarrollo backend con más de 10 años de
+                                experiencia.</p>
+                        </div>
+                        <div class="team-card">
+                            <div class="member-image">
+                                <span>Foto</span>
+                            </div>
+                            <h3>María González</h3>
+                            <p class="role">Diseñadora UI/UX</p>
+                            <p>Experta en crear interfaces intuitivas y experiencias de usuario memorables que convierten
+                                visitantes en clientes.</p>
+                        </div>
+                        <div class="team-card">
+                            <div class="member-image">
+                                <span>Foto</span>
+                            </div>
+                            <h3>Carlos Rodríguez</h3>
+                            <p class="role">Desarrollador Frontend</p>
+                            <p>Especialista en tecnologías web modernas con enfoque en rendimiento y accesibilidad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CONTACTO -->
+    <section id="contact" class="contact-section">
+        <div class="page-header">
+            <div class="container">
+                <h1>Contacto</h1>
+                <p>Estamos aquí para ayudarte. Contáctanos y conversemos sobre tu proyecto.</p>
+            </div>
+        </div>
+
+        <div class="contact-content">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Información de Contacto</h2>
+                        <p>Completa el formulario o contáctanos directamente a través de los siguientes medios:</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="contact-icon">📧</div>
+                                <div class="contact-details">
+                                    <h3>Correo Electrónico</h3>
+                                    <p>contacto@devsign.cl</p>
+                                    <p>soporte@devsign.cl</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon">📱</div>
+                                <div class="contact-details">
+                                    <h3>Teléfono</h3>
+                                    <p>+56 9 94354886</p>
+                                    <p>Lunes a Viernes: 9:00 - 18:00</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <div class="contact-icon">📍</div>
+                                <div class="contact-details">
+                                    <h3>Ubicación</h3>
+                                    <p>Av. Abdón Cifuentes 255</p>
+                                    <p>Providencia, Santiago, Chile</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-media">
+                            <h3>Síguenos</h3>
+                            <div class="social-icons">
+                                <a href="#" class="social-icon">FB</a>
+                                <a href="#" class="social-icon">IG</a>
+                                <a href="#" class="social-icon">LI</a>
+                                <a href="#" class="social-icon">TW</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form-container">
+                        <h2>Envíanos un Mensaje</h2>
+                        <form class="contact-form" action="https://formspree.io/f/xeogoayz" method="POST">
+                            <div class="form-group">
+                                <label for="name">Nombre Completo</label>
+                                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Correo Electrónico</label>
+                                <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Teléfono (opcional)</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Tu número de teléfono">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Asunto</label>
+                                <input type="text" id="subject" name="subject" placeholder="Asunto de tu mensaje" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Mensaje</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Cuéntanos sobre tu proyecto o consulta" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <button type="submit" class="submit-button">Enviar Mensaje</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="map-section">
+                    <h2>Nuestra Ubicación</h2>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.9359987347053!2d-70.58259622375149!3d-33.404878894077064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf44700621a9%3A0x937668b3a7d84adb!2sAv.%20Abdon%20Cifuentes%20255%2C%20Providencia%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1713883764118!5m2!1ses!2scl" width="100%" height="400" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h2>Preguntas Frecuentes</h2>
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <h3>¿Cuál es el proceso para iniciar un proyecto?</h3>
+                            <p>Nuestro proceso comienza con una consulta inicial para entender tus necesidades, seguido de una propuesta detallada. Una vez aprobada, pasamos a la fase de diseño, desarrollo, pruebas y finalmente lanzamiento.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>¿Cuánto tiempo toma desarrollar un sitio web o aplicación?</h3>
+                            <p>El tiempo de desarrollo varía según la complejidad del proyecto. Un sitio web básico puede tomar 2-4 semanas, mientras que aplicaciones más complejas pueden requerir 4-8 meses o más dependiendo de los requerimientos específicos.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>¿Ofrecen servicios de mantenimiento?</h3>
+                            <p>Sí, ofrecemos planes de mantenimiento y soporte continuo para asegurar que tu sitio o aplicación funcione correctamente y se mantenga actualizado después del lanzamiento.</p>
+                        </div>
+                        <div class="faq-item">
+                            <h3>¿Trabajan con clientes fuera de Chile?</h3>
+                            <p>Actualmente nos enfocamos exclusivamente en empresas chilenas establecidas con giro formal en Chile. Sin embargo, no nos cerramos a la posibilidad de expandirnos al extranjero en el futuro, conforme nuestro equipo y capacidades crezcan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
     <section class="cta">
         <div class="container">
             <h2>¿Listo para dar el siguiente paso?</h2>
             <p class="subtitle">Contacta con nosotros hoy mismo y hablemos sobre cómo podemos ayudarte a transformar tu idea en realidad.</p>
-            <a href="contact.html" class="cta-button-white">Solicitar Presupuesto</a>
+            <a href="#contact" class="cta-button-white">Solicitar Presupuesto</a>
         </div>
     </section>
 
@@ -182,9 +594,9 @@
                 <div class="footer-col">
                     <h4>Enlaces Rápidos</h4>
                     <ul class="footer-links">
-                        <li><a href="services.html">Servicios</a></li>
+                        <li><a href="#services">Servicios</a></li>
                         <li><a href="#projects">Proyectos</a></li>
-                        <li><a href="about.html">Nosotros</a></li>
+                        <li><a href="#about">Nosotros</a></li>
                         <li><a href="https://beautycare.devsign.cl">Beauty Care App</a></li>
                     </ul>
                 </div>
@@ -193,7 +605,7 @@
                     <ul class="footer-links">
                         <li>📧 contacto@devsign.cl</li>
                         <li>📱 +56 9 94354886</li>
-                        <li>📍 Santiago, Chile</li>
+                        <li>📍 Av. Abdón Cifuentes 255, Providencia, Santiago</li>
                     </ul>
                 </div>
             </div>
@@ -203,7 +615,7 @@
         </div>
     </footer>
 
-    <!-- Script del carrusel embebido para garantizar su funcionamiento -->
+    <!-- Script para carrousel y scroll suave -->
     <script>
         // Esta función se ejecutará cuando la página haya cargado completamente
         document.addEventListener('DOMContentLoaded', function() {
@@ -269,6 +681,25 @@
                 
                 // Iniciar el carrusel automático
                 setInterval(nextSlide, 3000); // Cambiar cada 3 segundos
+            });
+            
+            // Destacar enlace de navegación activo al hacer scroll
+            window.addEventListener('scroll', function() {
+                const sections = document.querySelectorAll('section[id]');
+                const scrollPosition = window.scrollY;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        document.querySelectorAll('.nav-links a').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        document.querySelector(`.nav-links a[href="#${sectionId}"]`)?.classList.add('active');
+                    }
+                });
             });
         });
     </script>
