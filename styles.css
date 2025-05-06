@@ -159,7 +159,7 @@ h1 {
 
 .section-title {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
 h2 {
@@ -949,4 +949,89 @@ html {
 
 .social-icon.twitter {
     background-color: #1DA1F2; /* Azul de Twitter */
+}
+
+.service-detailed-item {
+    display: flex;
+    align-items: flex-start; /* Cambiado de stretch a flex-start para alinear al comienzo */
+    gap: 40px;
+    margin-bottom: 60px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 70px;
+}
+
+.service-detailed-image {
+    flex: 0 0 45%;
+    max-width: 45%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Cambiado a flex-start para alinear arriba */
+    background-color: transparent; /* Quitado el fondo gris */
+}
+
+.service-detailed-image img {
+    width: 100%;
+    object-fit: contain; /* Cambiado de cover a contain para mantener la proporción */
+    object-position: top; /* Alinea la imagen en la parte superior */
+    max-height: 400px; /* Altura máxima para controlar el tamaño */
+}
+
+.service-detailed-content {
+    flex: 1;
+    padding: 0 40px 40px 0; 
+}
+
+.service-detailed-content h2 {
+    margin-top: 0; 
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.service-detailed-content h3 {
+    font-size: 22px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-features li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.service-features li:before {
+    content: "✓";
+    color: #4CAF50;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .service-detailed-item {
+        flex-direction: column;
+    }
+    
+    .service-detailed-image {
+        flex: 0 0 100%;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    
+    .service-detailed-content {
+        padding: 0 30px 30px 30px;
+    }
 }
