@@ -889,6 +889,8 @@
     <script>
         // Esta función se ejecutará cuando la página haya cargado completamente
         // Reemplaza todo el contenido del script existente con este código completo
+        // Esta función se ejecutará cuando la página haya cargado completamente
+        // Reemplaza todo el contenido del script existente con este código completo
         document.addEventListener('DOMContentLoaded', function () {
             // ---- SCROLL SUAVE ----
             const links = document.querySelectorAll('a[href^="#"]');
@@ -942,10 +944,13 @@
                 const prevButton = document.querySelector('.arrow.prev');
                 const nextButton = document.querySelector('.arrow.next');
                 let heroCurrentSlide = 0;
-                let heroInterval;
+                let heroInterval = null;
 
                 // Función para cambiar a una diapositiva específica
                 function goToSlide(index) {
+                    // Validar el índice
+                    if (index < 0 || index >= heroSlides.length) return;
+
                     // Remover la clase active de todas las diapositivas e indicadores
                     heroSlides.forEach(slide => slide.classList.remove('active'));
                     indicators.forEach(indicator => indicator.classList.remove('active'));
@@ -970,14 +975,23 @@
                     goToSlide(newIndex);
                 }
 
-                // Iniciar la rotación automática
-                function startAutoRotation() {
-                    heroInterval = setInterval(nextHeroSlide, 5000); // Cambiar cada 5 segundos
+                // Detener la rotación automática si existe
+                function stopAutoRotation() {
+                    if (heroInterval) {
+                        clearInterval(heroInterval);
+                        heroInterval = null;
+                    }
                 }
 
-                // Detener la rotación automática
-                function stopAutoRotation() {
-                    clearInterval(heroInterval);
+                // Iniciar la rotación automática
+                function startAutoRotation() {
+                    // Asegurarse de detener cualquier intervalo existente primero
+                    stopAutoRotation();
+
+                    // Crear un nuevo intervalo
+                    heroInterval = setInterval(() => {
+                        nextHeroSlide();
+                    }, 5000); // Cambiar cada 5 segundos
                 }
 
                 // Event listeners para los botones
@@ -1004,15 +1018,20 @@
                     });
                 });
 
-                // Iniciar la rotación automática al cargar la página
-                startAutoRotation();
-
                 // Pausar la rotación automática cuando el usuario pase el mouse por encima
                 const heroSection = document.querySelector('.hero');
                 if (heroSection) {
                     heroSection.addEventListener('mouseenter', stopAutoRotation);
                     heroSection.addEventListener('mouseleave', startAutoRotation);
                 }
+
+                // Iniciar el carrusel después de una breve pausa para asegurar que todo esté cargado
+                setTimeout(startAutoRotation, 100);
+
+                // Asegurarse de que el carrusel siga funcionando incluso si la pestaña pierde el foco
+                window.addEventListener('focus', () => {
+                    if (!heroInterval) startAutoRotation();
+                });
             }
 
             // Destacar enlace de navegación activo al hacer scroll
