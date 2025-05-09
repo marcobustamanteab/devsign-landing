@@ -921,6 +921,36 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ---- CARRUSEL DE PROYECTOS ----
+// Esta función se ejecutará cuando la página haya cargado completamente
+// Reemplaza todo el contenido del script existente con este código completo
+document.addEventListener('DOMContentLoaded', function () {
+    // ---- SCROLL SUAVE ----
+    const links = document.querySelectorAll('a[href^="#"]');
+
+    links.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+
+            if (targetId !== '#') {
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+
+    // ---- CARRUSEL DE PROYECTOS ----
     const projectCarousels = document.querySelectorAll('.carousel-container');
 
     projectCarousels.forEach(function (carousel) {
@@ -946,8 +976,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const prevButton = document.querySelector('.arrow.prev');
         const nextButton = document.querySelector('.arrow.next');
         let heroCurrentSlide = 0;
-        let heroInterval = null;
-        let isMouseOver = false; // Flag para rastrear si el mouse está sobre el carrusel
 
         // Función para cambiar a una diapositiva específica
         function goToSlide(index) {
@@ -978,78 +1006,21 @@ document.addEventListener('DOMContentLoaded', function () {
             goToSlide(newIndex);
         }
 
-        // Detener la rotación automática
-        function stopAutoRotation() {
-            if (heroInterval) {
-                clearInterval(heroInterval);
-                heroInterval = null;
-            }
-        }
-
-        // Iniciar la rotación automática
-        function startAutoRotation() {
-            // Solo iniciar si no hay un intervalo activo y el mouse no está sobre el carrusel
-            if (!heroInterval && !isMouseOver) {
-                heroInterval = setInterval(nextHeroSlide, 5000); // Cambiar cada 5 segundos
-            }
-        }
-
         // Event listeners para los botones
         if (nextButton && prevButton) {
-            nextButton.addEventListener('click', () => {
-                nextHeroSlide();
-                stopAutoRotation();
-                // No reiniciar la rotación si el mouse sigue sobre el carrusel
-                if (!isMouseOver) {
-                    startAutoRotation();
-                }
-            });
-
-            prevButton.addEventListener('click', () => {
-                prevHeroSlide();
-                stopAutoRotation();
-                // No reiniciar la rotación si el mouse sigue sobre el carrusel
-                if (!isMouseOver) {
-                    startAutoRotation();
-                }
-            });
+            nextButton.addEventListener('click', nextHeroSlide);
+            prevButton.addEventListener('click', prevHeroSlide);
         }
 
         // Event listeners para los indicadores
         indicators.forEach((indicator, index) => {
             indicator.addEventListener('click', () => {
                 goToSlide(index);
-                stopAutoRotation();
-                // No reiniciar la rotación si el mouse sigue sobre el carrusel
-                if (!isMouseOver) {
-                    startAutoRotation();
-                }
             });
         });
 
-        // Manejar eventos de mouse en el carrusel
-        const heroSection = document.querySelector('.hero');
-        if (heroSection) {
-            heroSection.addEventListener('mouseenter', () => {
-                isMouseOver = true;
-                stopAutoRotation();
-            });
-
-            heroSection.addEventListener('mouseleave', () => {
-                isMouseOver = false;
-                startAutoRotation();
-            });
-        }
-
-        // Iniciar el carrusel inmediatamente
-        startAutoRotation();
-        
-        // Verificar periódicamente si el carrusel debería estar funcionando
-        setInterval(() => {
-            if (!isMouseOver && !heroInterval) {
-                startAutoRotation();
-            }
-        }, 5000);
+        // Iniciar la rotación automática sin posibilidad de detenerla
+        setInterval(nextHeroSlide, 5000); // Cambiar cada 5 segundos
     }
 
     // Destacar enlace de navegación activo al hacer scroll
