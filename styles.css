@@ -1038,7 +1038,5 @@ html {
 }
 
 .carousel-slide img[src*="dashboard.png"] {
-    object-fit: contain; /* Alternativa que muestra la imagen completa dentro del contenedor */
-    /* o */
-    object-position: top; /* Si quieres mostrar la parte superior de la imagen */
+    object-fit: contain; 
 }
