@@ -892,159 +892,129 @@
         // Esta función se ejecutará cuando la página haya cargado completamente
         // Reemplaza todo el contenido del script existente con este código completo
         // Esta función se ejecutará cuando la página haya cargado completamente
-// Reemplaza todo el contenido del script existente con este código completo
-document.addEventListener('DOMContentLoaded', function () {
-    // ---- SCROLL SUAVE ----
-    const links = document.querySelectorAll('a[href^="#"]');
+        // Reemplaza todo el contenido del script existente con este código completo
+        document.addEventListener('DOMContentLoaded', function () {
+            // ---- SCROLL SUAVE ----
+            const links = document.querySelectorAll('a[href^="#"]');
 
-    links.forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
+            links.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
 
-            const targetId = this.getAttribute('href');
+                    const targetId = this.getAttribute('href');
 
-            if (targetId !== '#') {
-                const targetElement = document.querySelector(targetId);
+                    if (targetId !== '#') {
+                        const targetElement = document.querySelector(targetId);
 
-                if (targetElement) {
-                    const headerOffset = 80;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        if (targetElement) {
+                            const headerOffset = 80;
+                            const elementPosition = targetElement.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // ---- CARRUSEL DE PROYECTOS ----
+            const projectCarousels = document.querySelectorAll('.carousel-container');
+
+            projectCarousels.forEach(function (carousel) {
+                const slides = carousel.querySelectorAll('.carousel-slide');
+
+                let currentSlide = 0;
+
+                slides[0].classList.add('active');
+
+                function nextProjectSlide() {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
                 }
-            }
-        });
-    });
 
-    // ---- CARRUSEL DE PROYECTOS ----
-// Esta función se ejecutará cuando la página haya cargado completamente
-// Reemplaza todo el contenido del script existente con este código completo
-document.addEventListener('DOMContentLoaded', function () {
-    // ---- SCROLL SUAVE ----
-    const links = document.querySelectorAll('a[href^="#"]');
+                setInterval(nextProjectSlide, 3000);
+            });
 
-    links.forEach(link => {
-        link.addEventListener('click', function (e) {
-            e.preventDefault();
+            // ---- HERO CAROUSEL ----
+            const heroSlides = document.querySelectorAll('.hero-slide');
+            if (heroSlides.length > 0) { // Verificar que existen las diapositivas
+                const indicators = document.querySelectorAll('.indicator');
+                const prevButton = document.querySelector('.arrow.prev');
+                const nextButton = document.querySelector('.arrow.next');
+                let heroCurrentSlide = 0;
 
-            const targetId = this.getAttribute('href');
+                // Función para cambiar a una diapositiva específica
+                function goToSlide(index) {
+                    // Validar el índice
+                    if (index < 0 || index >= heroSlides.length) return;
 
-            if (targetId !== '#') {
-                const targetElement = document.querySelector(targetId);
+                    // Remover la clase active de todas las diapositivas e indicadores
+                    heroSlides.forEach(slide => slide.classList.remove('active'));
+                    indicators.forEach(indicator => indicator.classList.remove('active'));
 
-                if (targetElement) {
-                    const headerOffset = 80;
-                    const elementPosition = targetElement.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    // Añadir la clase active a la diapositiva e indicador actual
+                    heroSlides[index].classList.add('active');
+                    indicators[index].classList.add('active');
 
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
+                    // Actualizar el índice actual
+                    heroCurrentSlide = index;
                 }
+
+                // Función para ir a la siguiente diapositiva
+                function nextHeroSlide() {
+                    const newIndex = (heroCurrentSlide + 1) % heroSlides.length;
+                    goToSlide(newIndex);
+                }
+
+                // Función para ir a la diapositiva anterior
+                function prevHeroSlide() {
+                    const newIndex = (heroCurrentSlide - 1 + heroSlides.length) % heroSlides.length;
+                    goToSlide(newIndex);
+                }
+
+                // Event listeners para los botones
+                if (nextButton && prevButton) {
+                    nextButton.addEventListener('click', nextHeroSlide);
+                    prevButton.addEventListener('click', prevHeroSlide);
+                }
+
+                // Event listeners para los indicadores
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        goToSlide(index);
+                    });
+                });
+
+                // Iniciar la rotación automática sin posibilidad de detenerla
+                setInterval(nextHeroSlide, 5000); // Cambiar cada 5 segundos
             }
-        });
-    });
 
-    // ---- CARRUSEL DE PROYECTOS ----
-    const projectCarousels = document.querySelectorAll('.carousel-container');
+            // Destacar enlace de navegación activo al hacer scroll
+            window.addEventListener('scroll', function () {
+                const sections = document.querySelectorAll('section[id]');
+                const scrollPosition = window.scrollY;
 
-    projectCarousels.forEach(function (carousel) {
-        const slides = carousel.querySelectorAll('.carousel-slide');
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
 
-        let currentSlide = 0;
-
-        slides[0].classList.add('active');
-
-        function nextProjectSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-
-        setInterval(nextProjectSlide, 3000);
-    });
-
-    // ---- HERO CAROUSEL ----
-    const heroSlides = document.querySelectorAll('.hero-slide');
-    if (heroSlides.length > 0) { // Verificar que existen las diapositivas
-        const indicators = document.querySelectorAll('.indicator');
-        const prevButton = document.querySelector('.arrow.prev');
-        const nextButton = document.querySelector('.arrow.next');
-        let heroCurrentSlide = 0;
-
-        // Función para cambiar a una diapositiva específica
-        function goToSlide(index) {
-            // Validar el índice
-            if (index < 0 || index >= heroSlides.length) return;
-            
-            // Remover la clase active de todas las diapositivas e indicadores
-            heroSlides.forEach(slide => slide.classList.remove('active'));
-            indicators.forEach(indicator => indicator.classList.remove('active'));
-
-            // Añadir la clase active a la diapositiva e indicador actual
-            heroSlides[index].classList.add('active');
-            indicators[index].classList.add('active');
-
-            // Actualizar el índice actual
-            heroCurrentSlide = index;
-        }
-
-        // Función para ir a la siguiente diapositiva
-        function nextHeroSlide() {
-            const newIndex = (heroCurrentSlide + 1) % heroSlides.length;
-            goToSlide(newIndex);
-        }
-
-        // Función para ir a la diapositiva anterior
-        function prevHeroSlide() {
-            const newIndex = (heroCurrentSlide - 1 + heroSlides.length) % heroSlides.length;
-            goToSlide(newIndex);
-        }
-
-        // Event listeners para los botones
-        if (nextButton && prevButton) {
-            nextButton.addEventListener('click', nextHeroSlide);
-            prevButton.addEventListener('click', prevHeroSlide);
-        }
-
-        // Event listeners para los indicadores
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-                goToSlide(index);
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        document.querySelectorAll('.nav-links a').forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        const activeLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+                        }
+                    }
+                });
             });
         });
-
-        // Iniciar la rotación automática sin posibilidad de detenerla
-        setInterval(nextHeroSlide, 5000); // Cambiar cada 5 segundos
-    }
-
-    // Destacar enlace de navegación activo al hacer scroll
-    window.addEventListener('scroll', function () {
-        const sections = document.querySelectorAll('section[id]');
-        const scrollPosition = window.scrollY;
-
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.classList.remove('active');
-                });
-                const activeLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-            }
-        });
-    });
-});
     </script>
 </body>
 
