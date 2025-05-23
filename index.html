@@ -187,6 +187,75 @@
             height: 32px;
             margin-right: 8px;
         }
+
+        /* Estilos para las secciones de Clientes y Partners */
+        .clients-section, .partners-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .clients-section:nth-of-type(even), .partners-section:nth-of-type(even) {
+            background: white;
+        }
+
+        .logos-carousel {
+            margin-top: 60px;
+            overflow: hidden;
+            position: relative;
+            height: 120px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .logos-track {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            animation: scroll-logos 20s linear infinite;
+            width: max-content;
+        }
+
+        .logo-item {
+            height: 80px;
+            margin: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-item:hover {
+            opacity: 1;
+        }
+
+        .logo-item img {
+            max-height: 60px;
+            max-width: 150px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+
+        .logo-item:hover img {
+            filter: grayscale(0%);
+        }
+
+        @keyframes scroll-logos {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Pausar animación en hover */
+        .logos-carousel:hover .logos-track {
+            animation-play-state: paused;
+        }
     </style>
 </head>
 
@@ -201,6 +270,8 @@
                         <a href="#home">Inicio</a>
                         <a href="#services">Servicios</a>
                         <a href="#projects">Proyectos</a>
+                        <a href="#clients">Clientes</a>
+                        <a href="#partners">Partners</a>
                         <a href="#about">Nosotros</a>
                         <a href="#contact">Contacto</a>
                     </div>
@@ -559,6 +630,114 @@
         </div>
     </section>
 
+    <!-- CLIENTES -->
+    <section id="clients" class="clients-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Clientes</h2>
+                <p class="subtitle">Construimos profundos lazos de confianza con nuestros clientes, creando una sólida red de valor y beneficio mutuo</p>
+            </div>
+            
+            <div class="logos-carousel">
+                <div class="logos-track">
+                    <!-- Primera serie de logos -->
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Cliente 1">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Cliente 2">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Cliente 3">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Cliente 4">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Cliente 5">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Cliente 6">
+                    </div>
+                    
+                    <!-- Segunda serie de logos (duplicada para efecto infinito) -->
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Cliente 1">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Cliente 2">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Cliente 3">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Cliente 4">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Cliente 5">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Cliente 6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section id="partners" class="partners-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Partners</h2>
+                <p class="subtitle">Trabajamos junto a partners estratégicos para ofrecer las mejores soluciones tecnológicas</p>
+            </div>
+            
+            <div class="logos-carousel">
+                <div class="logos-track">
+                    <!-- Primera serie de logos -->
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Partner 1">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Partner 2">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Partner 3">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Partner 4">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Partner 5">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Partner 6">
+                    </div>
+                    
+                    <!-- Segunda serie de logos (duplicada para efecto infinito) -->
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Partner 1">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Partner 2">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Partner 3">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Partner 4">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Partner 5">
+                    </div>
+                    <div class="logo-item">
+                        <img src="images/lmdent.png" alt="Partner 6">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- NOSOTROS -->
     <section id="about" class="about-section">
         <div class="page-header">
@@ -863,6 +1042,8 @@
                     <ul class="footer-links">
                         <li><a href="#services">Servicios</a></li>
                         <li><a href="#projects">Proyectos</a></li>
+                        <li><a href="#clients">Clientes</a></li>
+                        <li><a href="#partners">Partners</a></li>
                         <li><a href="#about">Nosotros</a></li>
                         <li><a href="#contact">Contacto</a></li>
                     </ul>

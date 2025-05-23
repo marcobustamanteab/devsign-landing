@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Ya tenemos un carousel funcionando, así que mantenemos ese código
+  // ---- CARRUSEL DE PROYECTOS ----
   // Inicializar todos los carruseles en la página
   const carousels = document.querySelectorAll(".carousel-container");
 
@@ -60,12 +60,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Iniciar el carrusel automático
     setInterval(nextSlide, 3000); // Cambiar cada 3 segundos
+  });
 
-    // Añade este código dentro de la función existente document.addEventListener('DOMContentLoaded', function() { ... })
-    // justo después de la inicialización del carrusel de proyectos
-
-    // ---- HERO CAROUSEL ----
-    const heroSlides = document.querySelectorAll(".hero-slide");
+  // ---- HERO CAROUSEL ----
+  const heroSlides = document.querySelectorAll(".hero-slide");
+  
+  // Verificar que existen las diapositivas del hero
+  if (heroSlides.length > 0) {
     const indicators = document.querySelectorAll(".indicator");
     const prevButton = document.querySelector(".arrow.prev");
     const nextButton = document.querySelector(".arrow.next");
@@ -74,6 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Función para cambiar a una diapositiva específica
     function goToSlide(index) {
+      // Validar el índice
+      if (index < 0 || index >= heroSlides.length) return;
+
       // Remover la clase active de todas las diapositivas e indicadores
       heroSlides.forEach((slide) => slide.classList.remove("active"));
       indicators.forEach((indicator) => indicator.classList.remove("active"));
@@ -87,13 +91,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Función para ir a la siguiente diapositiva
-    function nextSlide() {
+    function nextHeroSlide() {
       const newIndex = (heroCurrentSlide + 1) % heroSlides.length;
       goToSlide(newIndex);
     }
 
     // Función para ir a la diapositiva anterior
-    function prevSlide() {
+    function prevHeroSlide() {
       const newIndex =
         (heroCurrentSlide - 1 + heroSlides.length) % heroSlides.length;
       goToSlide(newIndex);
@@ -101,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Iniciar la rotación automática
     function startAutoRotation() {
-      heroInterval = setInterval(nextSlide, 5000); // Cambiar cada 5 segundos
+      heroInterval = setInterval(nextHeroSlide, 5000); // Cambiar cada 5 segundos
     }
 
     // Detener la rotación automática
@@ -109,18 +113,20 @@ document.addEventListener("DOMContentLoaded", function () {
       clearInterval(heroInterval);
     }
 
-    // Event listeners para los botones
-    nextButton.addEventListener("click", () => {
-      nextSlide();
-      stopAutoRotation();
-      startAutoRotation(); // Reiniciar la rotación
-    });
+    // Event listeners para los botones (si existen)
+    if (nextButton && prevButton) {
+      nextButton.addEventListener("click", () => {
+        nextHeroSlide();
+        stopAutoRotation();
+        startAutoRotation(); // Reiniciar la rotación
+      });
 
-    prevButton.addEventListener("click", () => {
-      prevSlide();
-      stopAutoRotation();
-      startAutoRotation(); // Reiniciar la rotación
-    });
+      prevButton.addEventListener("click", () => {
+        prevHeroSlide();
+        stopAutoRotation();
+        startAutoRotation(); // Reiniciar la rotación
+      });
+    }
 
     // Event listeners para los indicadores
     indicators.forEach((indicator, index) => {
@@ -135,11 +141,32 @@ document.addEventListener("DOMContentLoaded", function () {
     startAutoRotation();
 
     // Pausar la rotación automática cuando el usuario pase el mouse por encima
-    document
-      .querySelector(".hero")
-      .addEventListener("mouseenter", stopAutoRotation);
-    document
-      .querySelector(".hero")
-      .addEventListener("mouseleave", startAutoRotation);
+    const heroSection = document.querySelector(".hero");
+    if (heroSection) {
+      heroSection.addEventListener("mouseenter", stopAutoRotation);
+      heroSection.addEventListener("mouseleave", startAutoRotation);
+    }
+  }
+
+  // ---- DESTACAR ENLACE DE NAVEGACIÓN ACTIVO ----
+  window.addEventListener('scroll', function () {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollPosition = window.scrollY;
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 100;
+      const sectionHeight = section.offsetHeight;
+      const sectionId = section.getAttribute('id');
+
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.classList.remove('active');
+        });
+        const activeLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
+      }
+    });
   });
 });
