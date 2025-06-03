@@ -189,12 +189,14 @@
         }
 
         /* Estilos para las secciones de Clientes y Partners */
-        .clients-section, .partners-section {
+        .clients-section,
+        .partners-section {
             padding: 80px 0;
             background: #f8f9fa;
         }
 
-        .clients-section:nth-of-type(even), .partners-section:nth-of-type(even) {
+        .clients-section:nth-of-type(even),
+        .partners-section:nth-of-type(even) {
             background: white;
         }
 
@@ -246,6 +248,7 @@
             0% {
                 transform: translateX(0);
             }
+
             100% {
                 transform: translateX(-50%);
             }
@@ -600,15 +603,26 @@
                 </div>
 
                 <div class="project-card">
-                    <div class="project-image">E-commerce Platform</div>
+                    <div class="carousel-container">
+                        <div class="carousel-slides">
+                            <div class="carousel-slide active">
+                                <img src="images/wm-img01.png" alt="BeautyCare Login">
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="images/wm-img02.png" alt="BeautyCare Dashboard">
+                            </div>
+                        </div>
+                    </div>
                     <div class="project-content">
                         <div class="project-tags">
                             <span class="tag">Diseño UI/UX</span>
-                            <span class="tag">Desarrollo Full Stack</span>
+                            <span class="tag">SCSS</span>
+                            <span class="tag">Frontend</span>
                         </div>
-                        <h3>Tendencia Hair</h3>
-                        <p>Sistema de gestión para peluquerías con funcionalidades de agenda, clientes, reportes
-                            y ventas.</p>
+                        <h3>WeMaps</h3>
+                        <p>plataforma digital que permite a los usuarios visualizar y obtener reportes de
+                            ubicaciones geográficas relevantes a través de un entorno interactivo, generalmente basado
+                            en mapas dinámicos.</p>
                     </div>
                 </div>
                 <div class="project-card">
@@ -626,6 +640,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -634,9 +649,10 @@
         <div class="container">
             <div class="section-title">
                 <h2>Nuestros Clientes</h2>
-                <p class="subtitle">Construimos profundos lazos de confianza con nuestros clientes, creando una sólida red de valor y beneficio mutuo</p>
+                <p class="subtitle">Construimos profundos lazos de confianza con nuestros clientes, creando una sólida
+                    red de valor y beneficio mutuo</p>
             </div>
-            
+
             <div class="logos-carousel">
                 <div class="logos-track">
                     <!-- Primera serie de logos -->
@@ -644,39 +660,39 @@
                         <img src="images/lmdent.png" alt="Cliente 1">
                     </div>
                     <div class="logo-item">
-                        <img src="images/lmdent.png" alt="Cliente 2">
+                        <img src="images/logo-wemaps.png" alt="Cliente 2">
                     </div>
                     <div class="logo-item">
                         <img src="images/lmdent.png" alt="Cliente 3">
                     </div>
                     <div class="logo-item">
-                        <img src="images/lmdent.png" alt="Cliente 4">
+                        <img src="images/logo-wemaps.png" alt="Cliente 4">
                     </div>
                     <div class="logo-item">
                         <img src="images/lmdent.png" alt="Cliente 5">
                     </div>
                     <div class="logo-item">
-                        <img src="images/lmdent.png" alt="Cliente 6">
+                        <img src="images/logo-wemaps.png" alt="Cliente 6">
                     </div>
-                    
+
                     <!-- Segunda serie de logos (duplicada para efecto infinito) -->
                     <div class="logo-item">
                         <img src="images/lmdent.png" alt="Cliente 1">
                     </div>
                     <div class="logo-item">
-                        <img src="images/lmdent.png" alt="Cliente 2">
+                        <img src="images/logo-wemaps.png" alt="Cliente 2">
                     </div>
                     <div class="logo-item">
                         <img src="images/lmdent.png" alt="Cliente 3">
                     </div>
                     <div class="logo-item">
-                        <img src="images/lmdent.png" alt="Cliente 4">
+                        <img src="images/logo-wemaps.png" alt="Cliente 4">
                     </div>
                     <div class="logo-item">
                         <img src="images/lmdent.png" alt="Cliente 5">
                     </div>
                     <div class="logo-item">
-                        <img src="images/lmdent.png" alt="Cliente 6">
+                        <img src="images/logo-wemaps.png" alt="Cliente 6">
                     </div>
                 </div>
             </div>
@@ -688,9 +704,10 @@
         <div class="container">
             <div class="section-title">
                 <h2>Nuestros Partners</h2>
-                <p class="subtitle">Trabajamos junto a partners estratégicos para ofrecer las mejores soluciones tecnológicas</p>
+                <p class="subtitle">Trabajamos junto a partners estratégicos para ofrecer las mejores soluciones
+                    tecnológicas</p>
             </div>
-            
+
             <div class="logos-carousel">
                 <div class="logos-track">
                     <!-- Primera serie de logos -->
@@ -712,7 +729,7 @@
                     <div class="logo-item">
                         <img src="images/cyberguardlogo.png" alt="Partner 6">
                     </div>
-                    
+
                     <!-- Segunda serie de logos (duplicada para efecto infinito) -->
                     <div class="logo-item">
                         <img src="images/cyberguardlogo.png" alt="Partner 1">
@@ -1020,10 +1037,8 @@
 
     <!-- Botón flotante de WhatsApp -->
     <div class="whatsapp-float">
-        <a href="https://wa.me/56994354886?text=Hola%2C%20me%20interesa%20conocer%20más%20sobre%20sus%20servicios" 
-           target="_blank" 
-           class="whatsapp-button"
-           title="Contáctanos por WhatsApp">
+        <a href="https://wa.me/56994354886?text=Hola%2C%20me%20interesa%20conocer%20más%20sobre%20sus%20servicios"
+            target="_blank" class="whatsapp-button" title="Contáctanos por WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
     </div>
