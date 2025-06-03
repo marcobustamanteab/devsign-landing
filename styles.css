@@ -1211,3 +1211,9 @@ footer {
         padding: 0 30px 30px 30px;
     }
 }
+
+.img-resize{
+    width: 80%;
+    height: auto;
+    object-fit: cover;
+}
